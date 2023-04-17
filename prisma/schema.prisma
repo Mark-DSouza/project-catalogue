@@ -11,7 +11,7 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Project {
+model ProjectCatalogueProject {
   id          String   @id @default(cuid())
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
@@ -19,4 +19,7 @@ model Project {
   description String   @db.VarChar(1000)
   priority    Int      @default(1)
   completed   Boolean  @default(false)
+  authorId    String
+
+  @@index([authorId])
 }
